@@ -1,48 +1,37 @@
-# projet
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>Intelligence Économique & Géopolitique – IA Générative</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    :root {
-      --primary-dark: #0A192F;
-      --accent-blue: #2A5C82;
-      --accent-teal: #4ECDC4;
-      --accent-red: #FF5A5F;
-      --text-light: #F8F9FA;
-      --bg-light: #f3f4f6;
-      --bg-medium: #e5e7eb;
-      --glass: rgba(255, 255, 255, 0.08);
+    /* Basique: reset minimal + styles globaux */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(45deg, var(--bg-light), var(--bg-medium));
+      font-family: Arial, sans-serif;
+      background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
       margin: 0;
       padding: 2rem;
       min-height: 100vh;
     }
     .dashboard {
       max-width: 1400px;
-      margin: 2rem auto;
+      margin: 0 auto;
       background: white;
       border-radius: 24px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      transform: translateY(20px);
-      opacity: 0;
-      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
-    @keyframes fadeInUp {
-      to { transform: translateY(0); opacity: 1; }
-    }
+
+    /* Header + onglets */
     .header {
-      background: linear-gradient(135deg, var(--primary-dark), #0F3460);
+      background: linear-gradient(135deg, #0A192F, #0F3460);
       padding: 2.5rem 2rem;
-      color: var(--text-light);
+      color: #F8F9FA;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -54,7 +43,7 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, var(--accent-teal) 0%, transparent 70%);
+      background: radial-gradient(circle, #4ECDC4 0%, transparent 70%);
       opacity: 0.05;
       pointer-events: none;
     }
@@ -62,49 +51,46 @@
       margin: 0;
       font-size: 2.6rem;
       font-weight: 600;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 1.2rem;
-      position: relative;
     }
     .header p {
-      margin: 0.8rem 0 0;
+      margin-top: 0.8rem;
       font-size: 1.1rem;
       opacity: 0.9;
       font-weight: 300;
     }
+
     .nav-tabs {
-      position: relative;
-      display: inline-flex;
-      background: var(--glass);
-      border-radius: 14px;
-      padding: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
       margin-top: 2.5rem;
+      flex-wrap: wrap;
     }
-    .nav-tabs .tab {
+    .tab {
       padding: 1rem 2.2rem;
       border-radius: 12px;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      color: var(--text-light);
+      transition: all 0.3s;
+      background: rgba(255, 255, 255, 0.08);
+      color: #F8F9FA;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       font-weight: 500;
       backdrop-filter: blur(4px);
-      position: relative;
-      z-index: 1;
     }
-    .nav-tabs .tab.active {
-      color: var(--primary-dark);
+    .tab:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .tab.active {
+      background: #4ECDC4;
       font-weight: 600;
+      box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
     }
-    .tab-indicator {
-      position: absolute;
-      height: 80%;
-      background: var(--accent-teal);
-      border-radius: 10px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 0;
-    }
+
+    /* Sections */
     .section {
       display: none;
       padding: 2.5rem;
@@ -113,7 +99,7 @@
       display: block;
     }
     h2 {
-      color: var(--primary-dark);
+      color: #0A192F;
       font-size: 2rem;
       margin-bottom: 2rem;
       position: relative;
@@ -126,18 +112,11 @@
       left: 0;
       width: 60px;
       height: 3px;
-      background: var(--accent-teal);
+      background: #4ECDC4;
       border-radius: 2px;
     }
-    /* Chart container */
-    .chart-container {
-      padding: 1rem;
-      background: white;
-      border-radius: 18px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      margin-bottom: 2rem;
-    }
-    /* Analyse Comparative */
+
+    /* SECTION 1 : Analyse Comparative */
     .grid-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -150,7 +129,7 @@
       padding: 2rem;
       box-shadow: 0 8px 24px rgba(0,0,0,0.06);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-left: 6px solid var(--accent-blue);
+      border-left: 6px solid #2A5C82; 
       position: relative;
       overflow: hidden;
     }
@@ -161,7 +140,7 @@
       left: 0;
       width: 100%;
       height: 4px;
-      background: var(--accent-teal);
+      background: #4ECDC4;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
@@ -181,7 +160,7 @@
     .era-icon {
       width: 56px;
       height: 56px;
-      background: linear-gradient(135deg, var(--accent-teal), #3BA9A2);
+      background: linear-gradient(135deg, #4ECDC4, #3BA9A2);
       border-radius: 14px;
       display: flex;
       align-items: center;
@@ -209,8 +188,8 @@
     }
     .progress {
       height: 100%;
-      background: linear-gradient(90deg, var(--accent-teal), #3BA9A2);
-      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(90deg, #4ECDC4, #3BA9A2);
+      transition: width 0.8s;
     }
     .tech-list {
       list-style: none;
@@ -237,28 +216,27 @@
       color: #4a5568;
       font-size: 1.05rem;
     }
-    /* Carte Mondiale */
+
+    /* SECTION 2 : Carte Mondiale */
     .map-container {
       position: relative;
       height: 600px;
       border-radius: 18px;
       overflow: hidden;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/World_map_-_low_resolution.svg/2560px-World_map_-_low_resolution.svg.png') no-repeat center center;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/World_map_-_low_resolution.svg/2880px-World_map_-_low_resolution.svg.png') no-repeat center center;
       background-size: cover;
-      filter: brightness(1.1);
       border: 2px solid rgba(255,255,255,0.3);
       box-shadow: inset 0 4px 12px rgba(0,0,0,0.06);
     }
     .map-node {
       position: absolute;
-      background: rgba(255,255,255,0.98);
       padding: 0.8rem 1.2rem;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.12);
       font-size: 0.95rem;
       text-align: center;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
       border: 1px solid rgba(0,0,0,0.05);
       min-width: 140px;
     }
@@ -267,142 +245,61 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
     .map-node.dominant {
-      background: var(--accent-red);
+      background: #FF5A5F;
       color: #fff;
-      border: 1px solid var(--accent-red);
+      border: 1px solid #FF5A5F;
     }
     .map-node.emergent {
-      background: var(--accent-blue);
+      background: #2A5C82;
       color: #fff;
-      border: 1px solid var(--accent-blue);
+      border: 1px solid #2A5C82;
     }
-    /* Légende repositionnée en bas à gauche et taille réduite */
     .legend {
       position: absolute;
       bottom: 20px;
       left: 20px;
       background: rgba(255,255,255,0.95);
-      padding: 0.5rem 0.8rem;
-      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       backdrop-filter: blur(6px);
       border: 1px solid rgba(0,0,0,0.05);
     }
     .legend p {
-      margin: 0.2rem 0;
+      margin: 0.4rem 0;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.8rem;
     }
-    /* Tooltip */
-    .tooltip {
-      position: absolute;
-      background: rgba(0,0,0,0.9);
-      color: white;
-      padding: 0.8rem 1.2rem;
-      border-radius: 8px;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s;
-      font-size: 0.9rem;
-    }
-    /* Écosystème Paris-Saclay */
-    .ecosystem-container {
-      max-width: 1200px;
+
+    /* SECTION 3 : Écosystème (SVG complet) */
+    .svg-container {
+      width: 900px;
       margin: 0 auto;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 12px rgba(0,0,0,0.06);
     }
-    .filter-bar {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    /* Modification des boutons de filtre pour améliorer la visibilité */
-    .filter-btn {
-      padding: 0.8rem 1.5rem;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      background: rgba(0,0,0,0.05);
-      color: var(--primary-dark);
-      border: 1px solid rgba(0,0,0,0.1);
-      font-weight: 500;
-    }
-    .filter-btn.active {
-      background: var(--accent-teal);
-      color: white;
-      font-weight: 600;
-      box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
-    }
-    .ecosystem-layers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .layer {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 18px;
-      text-align: center;
-      min-height: 280px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      transition: transform 0.3s ease;
-      border-top: 4px solid var(--accent-teal);
-    }
-    .layer:hover {
-      transform: translateY(-8px);
-    }
-    .layer h3 {
-      margin: 0 0 1.5rem;
-      color: var(--primary-dark);
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-    .entity {
-      background: rgba(78, 205, 196, 0.05);
-      margin: 0.8rem 0;
-      padding: 1rem;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(78, 205, 196, 0.1);
-    }
-    .entity:hover {
-      background: rgba(78, 205, 196, 0.1);
-      transform: translateX(6px);
-    }
-    @media (max-width: 768px) {
-      body { padding: 1rem; }
-      .dashboard { border-radius: 16px; }
-      .header h1 { font-size: 2rem; }
-      .tab { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
-      .section { padding: 1.5rem; }
-      h2 { font-size: 1.6rem; }
-    }
+
   </style>
 </head>
 <body>
+
   <div class="dashboard">
+    <!-- Header + Tabs -->
     <div class="header">
       <h1><i class="fas fa-brain"></i> Intelligence Économique & Géopolitique – IA Générative</h1>
       <p>Étudiant en Master E3IN – Ingénierie Informatique et Innovation Numérique</p>
       <div class="nav-tabs">
-        <div class="tab-indicator"></div>
         <div class="tab active" data-section="analyse">Analyse Comparative</div>
         <div class="tab" data-section="carte">Carte Mondiale</div>
-        <div class="tab" data-section="ecosystem">Écosystème Paris-Saclay</div>
+        <div class="tab" data-section="ecosystem">Écosystème</div>
       </div>
     </div>
 
-    <!-- Section Analyse -->
+    <!-- SECTION 1: Analyse Comparative -->
     <div id="analyse" class="section active">
       <h2>Analyse Approfondie de l’IA Générative dans les Révolutions Industrielles</h2>
-      <div class="chart-container">
-        <canvas id="investmentChart"></canvas>
-      </div>
       <div class="grid-container">
         <!-- Industrie 4.0 -->
         <div class="era-card">
@@ -418,7 +315,7 @@
             <span>+30%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress" style="width: 30%"></div>
+            <div class="progress" style="width:30%"></div>
           </div>
           <ul class="tech-list">
             <li><i class="fas fa-cloud"></i> Cloud Computing</li>
@@ -426,6 +323,7 @@
             <li><i class="fas fa-database"></i> Big Data</li>
           </ul>
         </div>
+
         <!-- Industrie 5.0 -->
         <div class="era-card">
           <div class="card-header">
@@ -440,7 +338,7 @@
             <span>40%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress" style="width: 40%"></div>
+            <div class="progress" style="width:40%"></div>
           </div>
           <ul class="tech-list">
             <li><i class="fas fa-dna"></i> GAN Matériaux</li>
@@ -448,6 +346,7 @@
             <li><i class="fas fa-leaf"></i> Éco-conception</li>
           </ul>
         </div>
+
         <!-- Industrie X.0 -->
         <div class="era-card">
           <div class="card-header">
@@ -462,7 +361,7 @@
             <span>90%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress" style="width: 90%"></div>
+            <div class="progress" style="width:90%"></div>
           </div>
           <ul class="tech-list">
             <li><i class="fas fa-pills"></i> Médicaments génératifs</li>
@@ -471,6 +370,7 @@
           </ul>
         </div>
       </div>
+
       <div class="analysis-details">
         <p>L’essor de l’IA générative – avec des technologies telles que ChatGPT, OpenAI Codex et MidJourney – révolutionne la production industrielle en automatisant la création de contenu et en optimisant les chaînes logistiques. Dans l’Industrie 4.0, ces innovations améliorent la productivité et la réactivité des systèmes.</p>
         <p>La transition vers l’Industrie 5.0 introduit une collaboration étroite entre l’humain et la machine, favorisant la personnalisation et intégrant des considérations de durabilité. Enfin, l’Industrie X.0 promet une hyper-personnalisation avec des innovations telles que la génération de médicaments sur mesure et l’usage de la blockchain pour sécuriser les modèles d’IA.</p>
@@ -478,154 +378,328 @@
       </div>
     </div>
 
-    <!-- Section Carte Mondiale -->
+    <!-- SECTION 2: Carte Mondiale -->
     <div id="carte" class="section">
       <h2>Carte Mondiale des Centres de Gravité – IA Générative</h2>
       <div class="map-container">
         <div class="legend">
           <h4>Légende</h4>
-          <p><span style="color: var(--accent-red); font-weight: bold;">●</span> Centres Dominants</p>
-          <p><span style="color: var(--accent-blue); font-weight: bold;">●</span> Centres Émergents</p>
+          <p><span style="color:#FF5A5F;font-weight:bold;">●</span> Centres Dominants</p>
+          <p><span style="color:#2A5C82;font-weight:bold;">●</span> Centres Émergents</p>
           <p>Icônes : <span>💻</span>, <span>🎓</span>, <span>🏛️</span></p>
         </div>
-        <div class="map-node dominant" style="top: 55%; left: 15%;" data-info="Silicon Valley : ~40% des investissements mondiaux en IA, acteurs clés tels qu'OpenAI et Anthropic.">
+
+        <!-- Points sur la carte -->
+        <div class="map-node dominant" style="top:40%; left:22%;" data-info="Silicon Valley : ~40% des investissements mondiaux en IA, acteurs clés tels qu'OpenAI et Anthropic.">
           💻 Silicon Valley<br><small>40% Invest.</small>
         </div>
-        <div class="map-node dominant" style="top: 40%; left: 85%;" data-info="Pékin : Entreprises comme Baidu et SenseTime contribuent à ~25% des publications scientifiques en IA.">
+        <div class="map-node dominant" style="top:38%; left:82%;" data-info="Pékin : Entreprises comme Baidu et SenseTime contribuent à ~25% des publications scientifiques en IA.">
           💻 Pékin<br><small>25% Pub.</small>
         </div>
-        <div class="map-node emergent" style="top: 35%; left: 50%;" data-info="Paris-Saclay : Hub européen émergent avec des acteurs tels que Mistral AI et LightOn, soutenu par France 2030.">
+        <div class="map-node emergent" style="top:32%; left:50%;" data-info="Paris-Saclay : Hub européen émergent avec des acteurs tels que Mistral AI et LightOn, soutenu par France 2030.">
           🎓 Paris-Saclay<br><small>Hub Européen</small>
         </div>
-        <div class="map-node emergent" style="top: 50%; left: 70%;" data-info="Yaffa : Collaboration entre secteur militaire et civil, avec des acteurs tels qu'AI21 Labs.">
+        <div class="map-node emergent" style="top:50%; left:68%;" data-info="Yaffa : Collaboration entre secteur militaire et civil, avec des acteurs tels qu'AI21 Labs.">
           🏛️ Yaffa<br><small>Collab. Mil-Civ</small>
         </div>
       </div>
     </div>
 
-    <!-- Section Écosystème Paris-Saclay -->
+    <!-- SECTION 3: Écosystème (SVG) -->
     <div id="ecosystem" class="section">
-      <h2>Schéma de l’Écosystème Paris-Saclay</h2>
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">Tous</button>
-        <button class="filter-btn" data-filter="research">Recherche</button>
-        <button class="filter-btn" data-filter="startup">Startups</button>
-        <button class="filter-btn" data-filter="funding">Financements</button>
-        <button class="filter-btn" data-filter="partnership">Partenariats</button>
-      </div>
-      <div class="ecosystem-layers">
-        <div class="layer research-layer">
-          <h3>Centres de Recherche</h3>
-          <div class="entity">INRIA</div>
-          <div class="entity">CEA</div>
-          <div class="entity">École Polytechnique</div>
-        </div>
-        <div class="layer startups-layer">
-          <h3>Startups</h3>
-          <div class="entity">Mistral AI</div>
-          <div class="entity">Hugging Face</div>
-          <div class="entity">LightOn</div>
-        </div>
-        <div class="layer funding-layer">
-          <h3>Financements</h3>
-          <div class="entity">France 2030</div>
-          <div class="entity">Bpifrance</div>
-        </div>
-        <div class="layer partnerships-layer">
-          <h3>Partenariats Publics-Privés</h3>
-          <div class="entity">Thales</div>
-          <div class="entity">TotalEnergies</div>
-          <div class="entity">Opérateur Public</div>
-        </div>
+      <h2>Écosystème (Schéma SVG)</h2>
+      
+      <!-- Conteneur stylisé optionnel -->
+      <div class="svg-container">
+        <!-- Schéma SVG qui reproduit l'écosystème des jeux vidéo (ellipses + texte) -->
+        <svg
+          width="900"
+          height="580"
+          viewBox="0 0 900 580"
+          xmlns="http://www.w3.org/2000/svg"
+          style="display:block; margin:0 auto; background:#fff;"
+        >
+          <!-- Ellipse EXTERNE (verte) -->
+          <ellipse 
+            cx="450"  
+            cy="290"  
+            rx="450"  
+            ry="290"  
+            fill="#4CAF50" 
+          />
+          <!-- Ellipse INTERMÉDIAIRE (beige) -->
+          <ellipse 
+            cx="450"
+            cy="290"
+            rx="350"
+            ry="220"
+            fill="#d9a668" 
+          />
+          <!-- Ellipse INTERNE (bleue) -->
+          <ellipse 
+            cx="450"
+            cy="290"
+            rx="150"
+            ry="90"
+            fill="#4a90e2"  
+          />
+
+          <!-- TITRE GLOBAL (en haut à gauche) -->
+          <text 
+            x="20" 
+            y="40" 
+            font-size="16" 
+            font-family="Arial" 
+            font-weight="bold"
+            fill="#000"
+          >
+            VIDEO GAMES&#10;DEVELOPMENT&#10;ECOSYSTEM
+          </text>
+
+          <!-- Financement -->
+          <text 
+            x="80" 
+            y="220" 
+            font-family="Arial" 
+            font-size="14" 
+            font-weight="bold"
+            fill="#000"
+          >
+            Financement
+          </text>
+          <text 
+            x="80" 
+            y="240" 
+            font-family="Arial" 
+            font-size="13"
+            fill="#000"
+          >
+            Boo games (Europe)&#10;État (Aides, statuts..)&#10;Crowdfunding&#10;KickStarter&#10;Indiegogo
+          </text>
+
+          <!-- Fournisseurs de fournisseurs -->
+          <text 
+            x="180" 
+            y="330" 
+            font-family="Arial" 
+            font-size="14" 
+            font-weight="bold"
+            fill="#000"
+          >
+            Fournisseurs de fournisseurs
+          </text>
+          <text 
+            x="180" 
+            y="350" 
+            font-family="Arial" 
+            font-size="13"
+            fill="#000"
+          >
+            Intel&#10;Samsung&#10;Foxconn
+          </text>
+
+          <!-- Organisateur d'événements -->
+          <text 
+            x="450" 
+            y="60" 
+            text-anchor="middle"
+            font-family="Arial" 
+            font-size="14" 
+            font-weight="bold"
+            fill="#000"
+          >
+            Organisateur d’événements
+          </text>
+          <text 
+            x="450" 
+            y="80" 
+            text-anchor="middle"
+            font-family="Arial" 
+            font-size="13"
+            fill="#000"
+          >
+            Capital Games&#10;IoT World&#10;E3&#10;Global Game Jam&#10;Paris Games Week
+          </text>
+
+          <!-- Clients potentiels -->
+          <text 
+            x="700" 
+            y="140" 
+            font-family="Arial" 
+            font-size="14" 
+            font-weight="bold"
+            fill="#000"
+          >
+            Clients potentiels
+          </text>
+          <text 
+            x="700" 
+            y="160" 
+            font-family="Arial" 
+            font-size="13"
+            fill="#000"
+          >
+            Domaine militaire&#10;Thales (simulation)&#10;Médical&#10;Pompiers&#10;Pornographie&#10;Écoles de conduite&#10;Audiovisuel
+          </text>
+
+          <!-- Clients secondaires -->
+          <text 
+            x="710" 
+            y="300" 
+            font-family="Arial" 
+            font-size="14" 
+            font-weight="bold"
+            fill="#000"
+          >
+            Clients secondaires
+          </text>
+          <text 
+            x="710" 
+            y="320"
+            font-family="Arial" 
+            font-size="13"
+            fill="#000"
+          >
+            Entités ayant arcade&#10;en activité secondaire&#10;Cinémas&#10;Bowling&#10;Laser Game&#10;...
+          </text>
+
+          <!-- Concurrents -->
+          <text 
+            x="450" 
+            y="530" 
+            text-anchor="middle"
+            font-family="Arial" 
+            font-size="14" 
+            font-weight="bold"
+            fill="#000"
+          >
+            Concurrents
+          </text>
+          <text 
+            x="450" 
+            y="550" 
+            text-anchor="middle"
+            font-family="Arial" 
+            font-size="13"
+            fill="#000"
+          >
+            Ali Baba&#10;Néo Legend&#10;BMI Gaming
+          </text>
+
+          <!-- Normes (dans ellipse beige) -->
+          <text 
+            x="450" 
+            y="170" 
+            text-anchor="middle"
+            font-family="Arial" 
+            font-size="14" 
+            font-weight="bold"
+            fill="#000"
+          >
+            Normes
+          </text>
+          <text 
+            x="450" 
+            y="190" 
+            text-anchor="middle"
+            font-family="Arial" 
+            font-size="13"
+            fill="#000"
+          >
+            Windows 7, 8, 10&#10;Mac OS 10
+          </text>
+
+          <!-- Fournisseurs complémentaires -->
+          <text 
+            x="450" 
+            y="380"
+            text-anchor="middle"
+            font-family="Arial" 
+            font-size="14" 
+            font-weight="bold"
+            fill="#000"
+          >
+            Fournisseurs complémentaires
+          </text>
+          <text 
+            x="450" 
+            y="400"
+            text-anchor="middle"
+            font-family="Arial" 
+            font-size="13"
+            fill="#000"
+          >
+            Autodesk&#10;Allegorithmic&#10;Tiled&#10;Apple&#10;Microsoft&#10;Adobe&#10;MakeHuman
+          </text>
+
+          <!-- Fournisseurs (ellipse bleue) -->
+          <text 
+            x="380" 
+            y="270"
+            font-family="Arial" 
+            font-size="14" 
+            font-weight="bold"
+            fill="#000"
+          >
+            Fournisseurs
+          </text>
+          <text 
+            x="380" 
+            y="290"
+            font-family="Arial" 
+            font-size="13"
+            fill="#000"
+          >
+            Thalmic Labs&#10;Oculus VR&#10;Unity
+          </text>
+
+          <!-- Compétences -->
+          <text 
+            x="450" 
+            y="250"
+            text-anchor="middle"
+            font-family="Arial" 
+            font-size="14" 
+            font-weight="bold"
+            fill="#000"
+          >
+            Compétences
+          </text>
+          <text 
+            x="450" 
+            y="270"
+            text-anchor="middle"
+            font-family="Arial" 
+            font-size="13"
+            fill="#000"
+          >
+            Graphisme&#10;Son&#10;Level design&#10;Game design&#10;Devices&#10;Dev
+          </text>
+
+          <!-- Client (ellipse bleue) -->
+          <text 
+            x="520" 
+            y="270"
+            font-family="Arial" 
+            font-size="14" 
+            font-weight="bold"
+            fill="#000"
+          >
+            Client
+          </text>
+          <text 
+            x="520" 
+            y="290"
+            font-family="Arial" 
+            font-size="13"
+            fill="#000"
+          >
+            Gérants salles&#10;d’arcade
+          </text>
+
+        </svg>
       </div>
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    // Gestion des onglets avec indicateur animé
-    const tabs = document.querySelectorAll('.nav-tabs .tab');
-    const sections = document.querySelectorAll('.section');
-    const tabIndicator = document.querySelector('.tab-indicator');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', function() {
-        const width = this.offsetWidth;
-        const left = this.offsetLeft;
-        tabIndicator.style.width = `${width}px`;
-        tabIndicator.style.left = `${left}px`;
-        tabs.forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-        sections.forEach(section => section.classList.remove('active'));
-        const target = this.getAttribute('data-section');
-        document.getElementById(target).classList.add('active');
-      });
-    });
-
-    // Initialisation du graphique Chart.js
-    const ctx = document.getElementById('investmentChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
-        datasets: [{
-          label: 'Investissements (en milliards $)',
-          data: [2.5, 4.2, 6.8, 12.4, 18.9, 25.3],
-          borderColor: '#4ECDC4',
-          tension: 0.4,
-          fill: false
-        }]
-      }
-    });
-
-    // Tooltip personnalisé pour les nœuds de la carte
-    const tooltip = document.createElement('div');
-    tooltip.className = 'tooltip';
-    document.body.appendChild(tooltip);
-    document.querySelectorAll('.map-node').forEach(node => {
-      node.addEventListener('mousemove', (e) => {
-        tooltip.style.left = `${e.pageX + 15}px`;
-        tooltip.style.top = `${e.pageY + 15}px`;
-        tooltip.textContent = node.getAttribute('data-info');
-        tooltip.style.opacity = '1';
-      });
-      node.addEventListener('mouseleave', () => {
-        tooltip.style.opacity = '0';
-      });
-    });
-
-    // Filtrage dans l'écosystème
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const ecosystemLayers = document.querySelectorAll('.ecosystem-layers .layer');
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.getAttribute('data-filter');
-        ecosystemLayers.forEach(layer => {
-          if (filter === 'all') {
-            layer.style.display = 'block';
-          } else if (
-            (filter === 'research' && layer.classList.contains('research-layer')) ||
-            (filter === 'startup' && layer.classList.contains('startups-layer')) ||
-            (filter === 'funding' && layer.classList.contains('funding-layer')) ||
-            (filter === 'partnership' && layer.classList.contains('partnerships-layer'))
-          ) {
-            layer.style.display = 'block';
-          } else {
-            layer.style.display = 'none';
-          }
-        });
-      });
-    });
-  </script>
-</body>
-</html><html>
-<head>
-    <meta charset="UTF-8" />
-    <title>title</title>
-</head>
-<body>
-    
-</body>
-</html>
