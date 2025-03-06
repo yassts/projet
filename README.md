@@ -703,3 +703,28 @@
   </div>
 
   <script>
+    // Navigation par onglets
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.section');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        sections.forEach(section => section.classList.remove('active'));
+        const target = tab.getAttribute('data-section');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+
+    // Interaction sur la carte
+    document.querySelectorAll('.map-node').forEach(node => {
+      node.addEventListener('click', () => {
+        alert(node.getAttribute('data-info'));
+      });
+    });
+  </script>
+
+  <!-- Font Awesome pour les icônes (ex: fas fa-brain) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</body>
+</html>
