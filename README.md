@@ -389,8 +389,8 @@
         <div class="map-node emergent" style="top:32%; left:50%;" data-info="Paris-Saclay : Hub européen émergent avec des acteurs tels que Mistral AI et LightOn, soutenu par France 2030.">
           🎓 Paris-Saclay<br><small>Hub Européen</small>
         </div>
-        <div class="map-node emergent" style="top:50%; left:68%;" data-info="Yaffa : Collaboration entre secteur militaire et civil, avec des acteurs tels qu'AI21 Labs.">
-          🏛️ Yaffa<br><small>Collab. Mil-Civ</small>
+        <div class="map-node emergent" style="top:50%; left:68%;" data-info="Tel Aviv : Collaboration entre secteur militaire et civil, avec des acteurs tels qu'AI21 Labs.">
+          🏛️ Tel Aviv<br><small>Collab. Mil-Civ</small>
         </div>
       </div>
     </div>
