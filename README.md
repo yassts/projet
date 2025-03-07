@@ -284,7 +284,6 @@
       <div class="nav-tabs">
         <div class="tab active" data-section="analyse">Analyse Comparative</div>
         <div class="tab" data-section="carte">Carte Mondiale</div>
-        <div class="tab" data-section="ecosystem">Écosystème</div>
       </div>
     </div>
 
